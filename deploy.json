@@ -1,0 +1,25 @@
+{
+  "apps" : [
+    {
+      "name": "Prod:MailServer",
+      "script": "index.js",
+      "env"  : {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+  "deploy" : {
+    "production" : {
+      "user" : "appuser",
+      "host" : ["X.X.X.X"],
+      "ref"  : "origin/master",
+      "repo" : "git@github.com:permpkin/api-connector.git",
+      "path" : "/home/appuser/services/mail-server/production",
+      "post-deploy" : "npm install && pm2 startOrRestart deploy/production.json",
+      "env"  : {
+        "PORT": 3000,
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}

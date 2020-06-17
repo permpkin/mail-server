@@ -1,0 +1,38 @@
+{
+  "name": "hosting-service",
+  "version": "1.0.0",
+  "description": "Mail server, Uptime monitor and spam/blacklist checker.",
+  "author": "Peter Kavanagh",
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "dependencies": {
+    "@sentry/node": "5.14.0",
+    "bull": "3.13.0",
+    "fastify": "2.12.1",
+    "fastify-helmet": "3.0.2",
+    "fastify-sensible": "2.1.1",
+    "smtp-server": "^3.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "pm2": "^4.4.0"
+  },
+  "scripts": {
+    "start": "npx nodemon index.js",
+    "deploy": "./node_modules/pm2/bin/pm2 deploy deploy/production.json production"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      ".test/*",
+      "node_modules/*",
+      ".vscode/*",
+      "deploy.json"
+    ],
+    "watch": [
+      "index.js",
+      "classes/*",
+      "methods/*"
+    ],
+    "delay": "2500"
+  }
+}
