@@ -8,7 +8,7 @@
   "dependencies": {
     "@sentry/node": "5.14.0",
     "bull": "3.13.0",
-    "fastify": "2.12.1",
+    "fastify": "3.1.1",
     "fastify-helmet": "3.0.2",
     "fastify-sensible": "2.1.1",
     "smtp-server": "^3.6.0"
